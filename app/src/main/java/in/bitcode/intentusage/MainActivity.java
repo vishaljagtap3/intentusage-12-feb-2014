@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText mEdtPath;
     private Button mBtnShowImage, btnShowImageGal, btnVideo, btnAudio, btnWeb, btnCall, btnPickImage, btnShare;
+    private Button mBtnBroadcast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,6 +125,17 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_PICK);
                 intent.setType("image/*");
                 startActivityForResult(intent, 1);
+            }
+        });
+
+        mBtnBroadcast = findViewById(R.id.btnBroadcast);
+        mBtnBroadcast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent("in.bitcode.media.download.COMPLETE");
+                //Intent intent = new Intent(Intent.ACTION_BATTERY_LOW); //security exception
+                intent.putExtra("path", mEdtPath.getText().toString());
+                sendBroadcast(intent);
             }
         });
 

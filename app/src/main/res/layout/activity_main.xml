@@ -14,6 +14,12 @@
         android:layout_height="wrap_content" />
 
     <Button
+        android:text="Broadcast"
+        android:id="@+id/btnBroadcast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
         android:id="@+id/btnShowImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText mEdtPath;
     private Button mBtnShowImage, btnShowImageGal, btnVideo, btnAudio, btnWeb, btnCall, btnPickImage, btnShare;
-    private Button mBtnBroadcast;
+    private Button mBtnBroadcast, mBtnStickyBroadcast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,17 @@ public class MainActivity extends AppCompatActivity {
 
         mEdtPath = findViewById(R.id.edtPath);
         mBtnShowImage = findViewById(R.id.btnShowImage);
+
+        mBtnStickyBroadcast = findViewById(R.id.btnStickyBroadcast);
+        mBtnStickyBroadcast.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent("in.bitcode.some.EVENT");
+                        sendStickyBroadcast(intent);
+                    }
+                }
+        );
 
         mBtnShowImage.setOnClickListener(new View.OnClickListener() {
             @Override
